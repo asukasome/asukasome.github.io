@@ -41,7 +41,7 @@ footer-links:
   #weibo: frommidworld #请输入你的微博个性域名 https://www.weibo.com/<thispart>
   behance: # https://www.behance.net/<username>
   dribbble:
-  zhihu: ning-meng-cheng-31-94
+  zhihu: 
   email: some-x@outlook.com
   facebook:
   flickr:
@@ -64,11 +64,11 @@ footer-text: Copyright (c) 2023 some
 disqus: # fromendworld
 
 # Gitalk
-gitalk:
-  clientID: bd65d5c0df878155b7fa
-  clientSecret: d0220762c05c2d6b6f6152a0f0e4b6b090de9729
-  repo: lemonchann.github.io
-  owner: lemonchann
+gitalk: 
+  clientID: 5f957dded6fcb1e1f7e5
+  clientSecret: 0fdafb402ec0dc95f4ec30098afe3980e0137c4e
+  repo: some-z.github.io
+  owner: some-z
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 #google_analytics: 
