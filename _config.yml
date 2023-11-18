@@ -69,6 +69,7 @@ gitalk:
   clientSecret: 0fdafb402ec0dc95f4ec30098afe3980e0137c4e
   repo: some-z.github.io
   owner: some-z
+  proxy: https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 #google_analytics: 
