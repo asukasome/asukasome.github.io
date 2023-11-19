@@ -12,7 +12,7 @@ description: "个人博客 分享资源/文章 | 学习路线"
 #
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://i0.hdslb.com/bfs/article/a1f1090f22b88aedc804d93145f9bbef5596666c.jpg@656w_442h_!web-article-pic.webp
+avatar: https://pic1.zhimg.com/80/v2-2c6d0249c348f4a4be2e72df6d1251ac_1440w.webp
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
 favicon: https://github.com/lemonchann/lemonchann.github.io/raw/master/images/favicon.ico
 
@@ -69,7 +69,7 @@ gitalk:
   clientSecret: 0fdafb402ec0dc95f4ec30098afe3980e0137c4e
   repo: some-z.github.io
   owner: some-z
-  proxy: 
+  proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 #google_analytics: 
