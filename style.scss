@@ -322,7 +322,7 @@ img {
   width: 30%;
 	-webkit-background-size: cover;
 	background-size: cover;
-	background-color: rgba(0, 0, 0, 0.3); 
+	background-color: rgba(0, 0, 0, 0); 
 	height: 100%;
 	top: 0;
 	left:0;
@@ -381,7 +381,6 @@ img {
   margin: 0 auto;
   color: $base-color;
   cursor: pointer;
-  font-family: $base-font;
   font-weight: 700;
   font-size: 28px;
   letter-spacing: 1px;
@@ -404,7 +403,6 @@ img {
 nav {
   display: block;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $base-font;
   font-weight: 500;
   font-size: 18px;
 
