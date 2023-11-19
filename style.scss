@@ -322,10 +322,11 @@ img {
   width: 30%;
 	-webkit-background-size: cover;
 	background-size: cover;
-	background-color: $background-color;
+	background-color: #333;
 	height: 100%;
 	top: 0;
 	left:0;
+	opacity：0.3
 	position: fixed;
 	z-index: 4;
   border-right: 1px solid $divider-color;
