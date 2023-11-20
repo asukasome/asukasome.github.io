@@ -328,7 +328,7 @@ img {
   left: 0;
   position: fixed;
   z-index: 4;
-  border-right: 5px solid $divider-color; /* 修改边界粗细 */
+  border-right: 0px solid $divider-color; /* 修改边界粗细 */
   border-radius: 10px; /* 添加弧度 */
 
   @include mobile {
@@ -336,7 +336,7 @@ img {
     height: auto;
     padding-bottom: 24px;
     position: relative;
-    border-bottom: 5px solid $divider-color; /* 移动设备下增加底部边界粗细 */
+    border-bottom: 0px solid $divider-color; /* 移动设备下增加底部边界粗细 */
     border-radius: 10px; /* 移动设备下添加弧度 */
     border-right: 0;
   }
