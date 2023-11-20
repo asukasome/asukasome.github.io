@@ -320,23 +320,24 @@ img {
 
 .wrapper-sidebar {
   width: 30%;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-color: rgba(0, 0, 0, 0); 
-	height: 100%;
-	top: 0;
-	left:0;
-        position: fixed;
-	z-index: 4;
-  border-right: 1px solid $divider-color;
-
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0); 
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 4;
+  border-right: 5px solid $divider-color; /* 修改边界粗细 */
+  border-radius: 10px; /* 添加弧度 */
 
   @include mobile {
     width: 100%;
     height: auto;
     padding-bottom: 24px;
     position: relative;
-    border-bottom: 1px solid $divider-color;
+    border-bottom: 5px solid $divider-color; /* 移动设备下增加底部边界粗细 */
+    border-radius: 10px; /* 移动设备下添加弧度 */
     border-right: 0;
   }
 }
