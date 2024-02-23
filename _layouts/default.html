@@ -33,5 +33,34 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-something" crossorigin="anonymous" />
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
 <script type="text/javascript" src="/js/fireworks.js"></script>
-<script src="/js/scroll.js"></script>   
+<script src="/js/scroll.js"></script> <script>
+(function(){const w = window,
+onlyWifi=true;
+w.kbn_setting0=6;
+w.kbn_setting1=19;
+w.kbn_setting2=true;
+w.kbn_setting3='180x170';
+w.kbn_setting4='right:10';
+w.kbn_setting5='160x50';
+w.kbn_setting6='14px';
+w.kbn_setting7='-13px';
+w.kbn_setting8='18px';
+w.kbn_setting9='36px';
+w.kbn_setting10=null;
+const key=encodeURIComponent('看板娘:执行判断');
+if(w[key]||(!(onlyWifi==false)&&navigator.connection.type!='wifi')){
+    return;
+}
+try{
+    w[key]=true;
+    const lib=document.createElement('script');
+    lib.src='https://cdn.jsdelivr.net/gh/IlysvlVEizbr/Live2D@1.9/kbn.js';
+    lib.defer=true;
+    document.body.append(lib);
+} catch(err){
+    console.log('看板娘：',err);
+}
+})();
+</script>
+  
 </html>
