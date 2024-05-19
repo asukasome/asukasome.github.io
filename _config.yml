@@ -42,10 +42,10 @@ footer-links:
   behance: # https://www.behance.net/<username>
   dribbble:
   zhihu: 
-  email: some-x@outlook.com
+  email: asukasome@outlook.com
   facebook:
   flickr:
-  github: some-z 
+  github: asukasome 
   googleplus: # anything in your profile username that comes after plus.google.com/
   instagram:
   linkedin:
@@ -53,7 +53,7 @@ footer-links:
   rss: RSS # just type anything here for a working RSS icon
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   tumblr: # https://<username>.tumblr.com
-  #twitter: frommidworld
+  twitter:
   youtube:
 
 # Text under the icons in footer
@@ -67,8 +67,8 @@ disqus: # fromendworld
 gitalk: 
   clientID: 5f957dded6fcb1e1f7e5
   clientSecret: 0fdafb402ec0dc95f4ec30098afe3980e0137c4e
-  repo: some-z.github.io
-  owner: some-z
+  repo: asukasome.github.io
+  owner: asukasome
   proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
@@ -76,7 +76,7 @@ gitalk:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: https://some-z.github.io
+url: https://asukasome.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
