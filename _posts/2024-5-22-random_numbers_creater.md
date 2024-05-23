@@ -10,7 +10,7 @@ author: some
 
 <head>
 
-<title>Custom Random Number Generator</title>
+
 <style>
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -67,7 +67,6 @@ author: some
   }
 </style>
 </head>
-<body>
 <div class="container">
   <h1>Custom Random Number Generator</h1>
   <label for="minValue">Minimum Value:</label>
@@ -94,5 +93,4 @@ function generateRandomNumber() {
   document.getElementById("randomNumber").innerHTML = "Random Number: " + randomNumber;
 }
 </script>
-</body>
 
