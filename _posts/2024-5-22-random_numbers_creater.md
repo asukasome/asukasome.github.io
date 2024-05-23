@@ -7,11 +7,9 @@ comments: true
 author: some
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Custom Random Number Generator</title>
 <style>
   body {
@@ -97,4 +95,4 @@ function generateRandomNumber() {
 }
 </script>
 </body>
-</html>
+
