@@ -8,9 +8,8 @@ author: some
 ---
 
 
-<title>Custom Random Number Generator</title>
 <style>
-.container {
+.shucontainer {
   text-align: center;
   margin-top: 50px;
   font-family: Arial, sans-serif;
@@ -39,7 +38,7 @@ button:hover {
 </style>
 </head>
 <body>
-<div class="container">
+<div class="shucontainer">
   <h1>Custom Random Number Generator</h1>
   <label for="minValue">Minimum Value:</label>
   <input type="number" id="minValue" min="0" step="1" value="0">
