@@ -1,4 +1,3 @@
-<canvas class="fireworks"></canvas>
 <script>
   "use strict";
 
