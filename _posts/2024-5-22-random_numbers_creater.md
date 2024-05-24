@@ -9,15 +9,15 @@ author: some
 
 <body>
   <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
-    <h1>Custom Random Number Generator</h1>
-    <label for="minValue">Minimum Value:</label>
+    <h1>Custom Random Number Creater</h1>
+    <label for="minValue">Min:</label>
     <input type="number" id="minValue" min="0" step="1" value="0" style="width: 80px; padding: 5px; margin: 5px; border-radius: 5px;">
     <br>
-    <label for="maxValue">Maximum Value:</label>
+    <label for="maxValue">Max:</label>
     <input type="number" id="maxValue" min="0" step="1" value="100" style="width: 80px; padding: 5px; margin: 5px; border-radius: 5px;">
     <br>
-    <button onclick="generateRandomNumber()" style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; border-radius: 5px;">Generate Random Number</button>
-    <p id="randomNumber" style="font-size: 24px; margin-top: 20px;"></p>
+    <button onclick="generateRandomNumber()" style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; border-radius: 5px;">Create</button>
+    <p id="randomNumber" style="font-size: 50px; margin-top: 20px;"></p>
   </div>
 
   <script>
