@@ -11,17 +11,16 @@ author: some
 
 
 <body>
-  <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
+  <div style="text-align: center; margin-top: 100px; ">
     <h1>Custom Random Number Creater</h1>
     <label for="minValue">最小:</label>
-    <input type="number" id="minValue" min="0" step="1" value="0" style="width: 80px; padding: 5px; margin: 5px; border-radius: 5px;">
+    <input type="number" id="minValue" min="0" step="1" value="0" style="width: 80px; padding: 5px; margin: 10px; border-radius: 5px;">
     <br>
     <label for="maxValue">最大:</label>
-    <input type="number" id="maxValue" min="0" step="1" value="100" style="width: 80px; padding: 5px; margin: 5px; border-radius: 5px;">
+    <input type="number" id="maxValue" min="0" step="1" value="100" style="width: 80px; padding: 5px; margin: 10px; border-radius: 5px;">
     <br>
 
-    
-    <button onclick="generateRandomNumber()" style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; border-radius: 5px;">Create</button>
+  <button onclick="generateRandomNumber()" style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; cursor: pointer; border-radius: 5px;">Create</button>
     <p id="randomNumber" style="font-size: 50px; margin-top: 20px;"></p>
   </div>
 
