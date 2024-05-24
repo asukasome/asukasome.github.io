@@ -1,98 +1,136 @@
 "use strict";
 
-// 定义常量和变量
-const canvasEl = document.querySelector(".fireworks");
-const ctx = canvasEl.getContext("2d");
-const colors = ["#FFC0CB", "#FFA07A", "#87CEEB", "#F08080"];
-const numberOfParticules = 30;
-let pointerX = 0;
-let pointerY = 0;
-
-// 更新鼠标坐标
+// 更新坐标函数
 function updateCoords(e) {
     pointerX = (e.clientX || e.touches[0].clientX) - canvasEl.getBoundingClientRect().left;
-    pointerY = (e.clientY || e.touches[0].clientY) - canvasEl.getBoundingClientRect().top;
+    pointerY = e.clientY || e.touches[0].clientY - canvasEl.getBoundingClientRect().top;
 }
 
-// 创建粒子对象
-function createParticule(x, y) {
-    return {
-        x,
-        y,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        radius: Math.random() * 16 + 16,
-        endPos: setParticuleDirection(x, y),
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        }
+// 设置烟花颜色为马卡龙色
+var colors = ["#FFAEBC", "#A0E7E5", "#B4F8C8", "#FBE7C6"];
+
+// 创建烟花粒子函数
+function createParticule(e, t) {
+    var a = {};
+    a.x = e;
+    a.y = t;
+    a.color = colors[anime.random(0, colors.length - 1)];
+    a.radius = anime.random(16, 32);
+    a.endPos = setParticuleDirection(a);
+    a.draw = function () {
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.radius, 0, 2 * Math.PI, !0);
+        ctx.fillStyle = a.color;
+        ctx.fill();
     };
+    return a;
 }
 
-// 设置粒子方向
-function setParticuleDirection(x, y) {
-    const angle = Math.random() * Math.PI * 2;
-    const distance = Math.random() * 130 + 50;
-    return {
-        x: x + Math.cos(angle) * distance,
-        y: y + Math.sin(angle) * distance
+// 创建烟花圆圈函数
+function createCircle(e, t) {
+    var a = {};
+    a.x = e;
+    a.y = t;
+    a.color = "#F00";
+    a.radius = 0.1;
+    a.alpha = 0.5;
+    a.lineWidth = 6;
+    a.draw = function () {
+        ctx.globalAlpha = a.alpha;
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.radius, 0, 2 * Math.PI, !0);
+        ctx.lineWidth = a.lineWidth;
+        ctx.strokeStyle = a.color;
+        ctx.stroke();
+        ctx.globalAlpha = 1;
     };
+    return a;
 }
 
-// 渲染粒子效果
-function renderParticules(anim) {
-    for (let i = 0; i < anim.animatables.length; i++) {
-        anim.animatables[i].target.draw();
+// 渲染烟花粒子函数
+function renderParticule(e) {
+    for (var t = 0; t < e.animatables.length; t++) {
+        e.animatables[t].target.draw();
     }
 }
 
-// 动画效果
-function animateParticules() {
-    const anim = anime.timeline({
-        duration: 800,
-        easing: "easeOutExpo"
-    });
-
-    const particles = [];
-    for (let i = 0; i < numberOfParticules; i++) {
-        particles.push(createParticule(pointerX, pointerY));
+// 动画烟花粒子函数
+function animateParticules(e, t) {
+    for (var a = createCircle(e, t), n = [], i = 0; i < numberOfParticules; i++) {
+        n.push(createParticule(e, t));
     }
-
-    anim.add({
-        targets: particles,
-        x: p => p.endPos.x,
-        y: p => p.endPos.y,
+    anime.timeline().add({
+        targets: n,
+        x: function (e) {
+            return e.endPos.x;
+        },
+        y: function (e) {
+            return e.endPos.y;
+        },
         radius: 0.1,
-        update: renderParticules
+        duration: anime.random(1200, 1800),
+        easing: "easeOutExpo",
+        update: renderParticule
+    }).add({
+        targets: a,
+        radius: anime.random(80, 160),
+        lineWidth: 0,
+        alpha: {
+            value: 0,
+            easing: "linear",
+            duration: anime.random(600, 800)
+        },
+        duration: anime.random(1200, 1800),
+        easing: "easeOutExpo",
+        update: renderParticule,
+        offset: 0
+    });
+}
+
+// 防抖函数
+function debounce(e, t) {
+    var a;
+    return function () {
+        var n = this,
+            i = arguments;
+        clearTimeout(a);
+        a = setTimeout(function () {
+            e.apply(n, i);
+        }, t);
+    };
+}
+
+var canvasEl = document.querySelector(".fireworks");
+if (canvasEl) {
+    var ctx = canvasEl.getContext("2d"),
+        numberOfParticules = 30,
+        pointerX = 0,
+        pointerY = 0,
+        tap = "mousedown";
+
+    var setCanvasSize = debounce(function () {
+        canvasEl.width = 2 * window.innerWidth;
+        canvasEl.height = 2 * window.innerHeight;
+        canvasEl.style.width = window.innerWidth + "px";
+        canvasEl.style.height = window.innerHeight + "px";
+        canvasEl.getContext("2d").scale(2, 2);
+    }, 500);
+
+    var render = anime({
+        duration: 1 / 0,
+        update: function () {
+            ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+        }
     });
 
-    anim.play();
-}
+    document.addEventListener(tap, function (e) {
+        if ("sidebar" !== e.target.id && "toggle-sidebar" !== e.target.id && "A" !== e.target.nodeName && "IMG" !== e.target.nodeName) {
+            render.play();
+            updateCoords(e);
+            animateParticules(pointerX, pointerY);
+        }
+    }, !1);
 
-// 事件监听
-document.addEventListener("mousedown", e => {
-    if (!e.target.closest(".sidebar") && !e.target.closest(".toggle-sidebar") && e.target.nodeName !== "A" && e.target.nodeName !== "IMG") {
-        updateCoords(e);
-        animateParticules();
-    }
-});
-
-// 设置画布尺寸和缩放
-function setCanvasSize() {
-    canvasEl.width = window.innerWidth;
-    canvasEl.height = window.innerHeight;
-    canvasEl.style.width = window.innerWidth + "px";
-    canvasEl.style.height = window.innerHeight + "px";
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-}
-
-// 初始化
-function init() {
     setCanvasSize();
-    window.addEventListener("resize", setCanvasSize);
+    window.addEventListener("resize", setCanvasSize, !1);
 }
-
-// 启动初始化
-init();
