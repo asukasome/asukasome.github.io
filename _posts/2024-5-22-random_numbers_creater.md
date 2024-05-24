@@ -36,7 +36,6 @@ button:hover {
   margin-top: 20px;
 }
 </style>
-</head>
 <body>
 <div class="shucontainer">
   <h1>Custom Random Number Generator</h1>
