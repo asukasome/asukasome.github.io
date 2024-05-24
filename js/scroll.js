@@ -35,7 +35,7 @@ const style = `
     color: #fff;
     font-size: 16px;
     bottom: 30px;
-    right: 25px;
+    right: 50px;
     cursor: pointer;
     z-index: 1000;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
