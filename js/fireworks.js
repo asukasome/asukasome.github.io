@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const colors = ['#FFDDC1', '#FFABAB', '#FFC3A0', '#FF677D', '#D4A5A5', '#392F5A', '#31A2AC'];
-        const particles = 30;
-        const x = event.clientX || event.touches[0].clientX;
-        const y = event.clientY || event.touches[0].clientY;
+        const particles = 20; // 减少粒子数量以提高性能
+        const x = event.pageX || event.touches[0].pageX;
+        const y = event.pageY || event.touches[0].pageY;
 
         for (let i = 0; i < particles; i++) {
             const particle = document.createElement('div');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             particle.style.top = `${y}px`;
             particle.style.left = `${x}px`;
             particle.style.pointerEvents = 'none';
-            particle.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
+            particle.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
 
             // 随机移动和消失
             const deltaX = (Math.random() - 0.5) * 200;
