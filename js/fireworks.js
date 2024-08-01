@@ -1,49 +1,33 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('click', createFirework);
-    document.addEventListener('touchstart', createFirework);
+// 创建一个函数来生成爱心效果
+function createHeart(event) {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  
+  // 设置爱心的位置为点击或触摸的位置
+  heart.style.top = `${event.clientY - 10}px`;  // 减去偏移量以调整爱心位置
+  heart.style.left = `${event.clientX - 10}px`; // 减去偏移量以调整爱心位置
+  
+  // 添加爱心到页面中
+  document.body.appendChild(heart);
+  
+  // 在动画结束后移除爱心元素
+  setTimeout(() => {
+    heart.remove();
+  }, 800); // 调整这里的时间以控制爱心消失速度
+}
 
-    function createFirework(event) {
-        // 防止在触摸事件时触发多次
-        if (event.type === 'touchstart') {
-            event.preventDefault();
-        }
+// 监听整个文档的点击事件
+document.addEventListener('click', function(event) {
+  createHeart(event);
+});
 
-        const colors = ['#FFDDC1', '#FFABAB', '#FFC3A0', '#FF677D', '#D4A5A5', '#392F5A', '#31A2AC'];
-        const particles = 9; // 减少粒子数量以提高性能
-        const x = (event.clientX || event.touches[0].clientX) + window.scrollX;
-        const y = (event.clientY || event.touches[0].clientY) + window.scrollY;
-
-        for (let i = 0; i < particles; i++) {
-            const particle = document.createElement('div');
-            document.body.appendChild(particle);
-
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            particle.style.backgroundColor = color;
-            particle.style.position = 'absolute';
-            particle.style.borderRadius = '50%';
-            particle.style.width = '8px';
-            particle.style.height = '8px';
-            particle.style.top = `${y}px`;
-            particle.style.left = `${x}px`;
-            particle.style.pointerEvents = 'none';
-
-            const deltaX = (Math.random() - 0.5) * 200;
-            const deltaY = (Math.random() - 0.5) * 200;
-            const transformString = `translate(${deltaX}px, ${deltaY}px)`;
-
-            // 使用 CSS 动画
-            particle.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
-            particle.style.opacity = '1';
-
-            // 强制重绘
-            particle.getBoundingClientRect();
-            particle.style.transform = transformString;
-            particle.style.opacity = '0';
-
-            // 动画结束后移除元素
-            particle.addEventListener('transitionend', () => {
-                particle.remove();
-            });
-        }
-    }
+// 监听整个文档的触摸事件
+document.addEventListener('touchstart', function(event) {
+  // 阻止触摸事件的默认行为，例如页面滚动
+  event.preventDefault();
+  
+  // 仅处理单指触摸，多指触摸会忽略
+  if (event.touches.length === 1) {
+    createHeart(event.touches[0]);
+  }
 });
